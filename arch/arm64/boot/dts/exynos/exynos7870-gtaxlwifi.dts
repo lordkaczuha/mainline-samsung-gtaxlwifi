@@ -28,6 +28,8 @@
 		#size-cells = <1>;
 		ranges;
 
+		bootargs = "regulator_ignore_unused clk_ignore_unused pd_ignore_unused console=tty0 consoleblank=0";
+
 		stdout-path = &serial2;
 
 		framebuffer@67000000 {
@@ -342,6 +344,8 @@
 				regulator-name = "vdd_ldo35";
 				regulator-min-microvolt = <2800000>;
 				regulator-max-microvolt = <2800000>;
+				regulator-always-on;
+				regulator-boot-on;
 			};
 		};
 	};
