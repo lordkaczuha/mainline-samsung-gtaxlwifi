@@ -588,6 +588,13 @@
 		samsung,pin-function = <EXYNOS_PIN_FUNC_INPUT>;
 		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
 	};
+
+	attn_irq: attn-irq-pins {
+               samsung,pins = "gpa0-4";
+               samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
+               samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
+               samsung,pin-drv = <0>;
+	}
 };
 
 &pinctrl_top {
