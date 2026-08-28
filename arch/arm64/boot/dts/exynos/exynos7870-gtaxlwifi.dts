@@ -48,8 +48,6 @@
         	regulator-max-microvolt = <1800000>;
         	gpio = <&gpd1 4 GPIO_ACTIVE_HIGH>;
         	enable-active-high;
-		regulator-always-on;
-		regulator-boot-on;
     	};
 
 	tsp_avdd: regulator-tsp-avdd {
@@ -59,8 +57,6 @@
         	regulator-max-microvolt = <3300000>;
         	gpio = <&gpd1 6 GPIO_ACTIVE_HIGH>;
         	enable-active-high;
-		regulator-always-on;
-		regulator-boot-on;
 		};
 
 	gpio-keys {
