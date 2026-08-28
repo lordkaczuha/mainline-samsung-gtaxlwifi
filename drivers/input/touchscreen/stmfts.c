@@ -324,9 +324,16 @@ static int stmfts_command(struct stmfts_data *sdata, const u8 cmd)
 	err = i2c_smbus_write_byte(sdata->client, cmd);
 	if (err)
 		return err;
-	msleep(50);
+	/* This is a nasty hack that id like to remove but it does somewhat work with it in place,
+	when compared to just giving error -110 when it runs normally, even just registering the 
+	touchscreen is a major win. to whoever will work on this after me: im so sorry but it must be known,
+	that this terrible mess was thought up not by artificiall intelligence, but genuine stupidity
+
+	~ lordkaczuha 28.08.2026 */
+	msleep(150);
 	
-	/*
+	/* original code for later, if someone wants to figure out why it no workie.
+	
 	if (!wait_for_completion_timeout(&sdata->cmd_done,
 					 msecs_to_jiffies(1000)))
 		return -ETIMEDOUT;
