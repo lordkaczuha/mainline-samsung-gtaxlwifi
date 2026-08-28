@@ -324,11 +324,13 @@ static int stmfts_command(struct stmfts_data *sdata, const u8 cmd)
 	err = i2c_smbus_write_byte(sdata->client, cmd);
 	if (err)
 		return err;
-
+	msleep(50);
+	
+	/*
 	if (!wait_for_completion_timeout(&sdata->cmd_done,
 					 msecs_to_jiffies(1000)))
 		return -ETIMEDOUT;
-
+		*/
 	return 0;
 }
 
