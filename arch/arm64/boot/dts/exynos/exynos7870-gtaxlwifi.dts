@@ -98,7 +98,7 @@
 	vdd_dummy_touch: regulator-fixed-touch {
 		compatible = "regulator-fixed";
 		regulator-name = "vdd_dummy_touch";
-	};57e390925f10b0d3fbf4f93d8d428fa79357ae83
+	};
 
 	reserved-memory {
 		#address-cells = <2>;
@@ -138,7 +138,7 @@
 		pinctrl-0 = <&pmic_irq>;
 
 		regulators {
-		57e390925f10b0d3fbf4f93d8d428fa79357ae83	vdd_buck1: buck1 {
+			vdd_buck1: buck1 {
 				regulator-name = "vdd_buck1";
 				regulator-min-microvolt = <500000>;
 				regulator-max-microvolt = <1300000>;
