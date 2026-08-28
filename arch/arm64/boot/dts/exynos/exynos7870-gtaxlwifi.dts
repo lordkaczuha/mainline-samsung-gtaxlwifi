@@ -59,6 +59,7 @@
         	enable-active-high;
 		};
 	};
+
 	gpio-keys {
 		compatible = "gpio-keys";
 		label = "GPIO Keys";
