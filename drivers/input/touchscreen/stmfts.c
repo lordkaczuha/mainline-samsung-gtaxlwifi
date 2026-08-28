@@ -570,13 +570,13 @@ static int stmfts_power_on(struct stmfts_data *sdata)
 		return err;
 
 	/* optional tuning */
-	err = stmfts_command(sdata, STMFTS_MS_CX_TUNING);
+	/*err = stmfts_command(sdata, STMFTS_MS_CX_TUNING);
 	if (err)
 		dev_warn(&sdata->client->dev,
 			 "failed to perform mutual auto tune: %d\n", err);
 
 	/* optional tuning */
-	err = stmfts_command(sdata, STMFTS_SS_CX_TUNING);
+	/*err = stmfts_command(sdata, STMFTS_SS_CX_TUNING);
 	if (err)
 		dev_warn(&sdata->client->dev,
 			 "failed to perform self auto tune: %d\n", err);
