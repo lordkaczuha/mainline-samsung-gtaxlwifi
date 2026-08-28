@@ -41,7 +41,24 @@
 			format = "a8r8g8b8";
 		};
 	};
+	tsp_dvdd: regulator-tsp-dvdd {
+        	compatible = "regulator-fixed";
+        	regulator-name = "tsp_dvdd";
+        	regulator-min-microvolt = <1800000>;
+        	regulator-max-microvolt = <1800000>;
+        	gpio = <&gpd1 4 GPIO_ACTIVE_HIGH>;
+        	enable-active-high;
+    	};
 
+	tsp_avdd: regulator-tsp-avdd {
+        	compatible = "regulator-fixed";
+        	regulator-name = "tsp_avdd";
+        	regulator-min-microvolt = <3300000>;
+        	regulator-max-microvolt = <3300000>;
+        	gpio = <&gpd1 6 GPIO_ACTIVE_HIGH>;
+        	enable-active-high;
+		};
+	};
 	gpio-keys {
 		compatible = "gpio-keys";
 		label = "GPIO Keys";
@@ -377,8 +394,8 @@
         touchscreen-size-y = <1920>;
 
        
-        vio-supply = <&vdd_ldo29>;
-        vdd-supply = <&vdd_ldo35>;
+        vdd-supply = <&tsp_dvdd>;
+        avdd-supply = <&tsp_avdd>;
     };
 };
 
