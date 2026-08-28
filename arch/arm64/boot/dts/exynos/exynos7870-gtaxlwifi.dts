@@ -356,6 +356,31 @@
 		};
 	};
 };
+&{/i2c@13840000} {
+    samsung,i2c-sda-delay = <100>;
+    samsung,i2c-max-bus-freq = <400000>;
+    status = "okay";
+
+    touchscreen@49 {
+        compatible = "st,stmfts";
+        reg = <0x49>;
+
+       
+        interrupt-parent = <&gpa0>;
+        interrupts = <4 IRQ_TYPE_EDGE_FALLING>;
+
+        pinctrl-names = "default";
+        pinctrl-0 = <&attn_irq>;
+
+  
+        touchscreen-size-x = <1200>;
+        touchscreen-size-y = <1920>;
+
+       
+        vio-supply = <&vdd_ldo29>;
+        vdd-supply = <&vdd_ldo35>;
+    };
+};
 
 &i2c3 {
 	#address-cells = <1>;
