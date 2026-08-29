@@ -561,10 +561,10 @@ static int stmfts_power_on(struct stmfts_data *sdata)
 
 	msleep(50);
 
-	err = stmfts_command(sdata, STMFTS_SYSTEM_RESET);
+	/*err = stmfts_command(sdata, STMFTS_SYSTEM_RESET);
 	if (err)
 		return err;
-
+	*/
 	err = stmfts_command(sdata, STMFTS_SLEEP_OUT);
 	if (err)
 		return err;
