@@ -538,10 +538,6 @@ static int stmfts_power_on(struct stmfts_data *sdata)
 	if (err)
 		return err;
 
-	/*
-	 * The datasheet does not specify the power on time, but considering
-	 * that the reset time is < 10ms, I sleep 20ms to be sure
-	 */
 	msleep(20);
 
 	err = i2c_smbus_read_i2c_block_data(sdata->client, STMFTS_READ_INFO,
@@ -559,40 +555,6 @@ static int stmfts_power_on(struct stmfts_data *sdata)
 
 	enable_irq(sdata->client->irq);
 
-	msleep(50);
-
-	/*err = stmfts_command(sdata, STMFTS_SYSTEM_RESET);
-	if (err)
-		return err;
-	*/
-	err = stmfts_command(sdata, STMFTS_SLEEP_OUT);
-	if (err)
-		return err;
-
-	/* optional tuning */
-	/*err = stmfts_command(sdata, STMFTS_MS_CX_TUNING);
-	if (err)
-		dev_warn(&sdata->client->dev,
-			 "failed to perform mutual auto tune: %d\n", err);
-
-	/* optional tuning */
-	/*err = stmfts_command(sdata, STMFTS_SS_CX_TUNING);
-	if (err)
-		dev_warn(&sdata->client->dev,
-			 "failed to perform self auto tune: %d\n", err);
-
-	err = stmfts_command(sdata, STMFTS_FULL_FORCE_CALIBRATION);
-	if (err)
-		return err;
-
-	/*
-	 * At this point no one is using the touchscreen
-	 * and I don't really care about the return value
-	 */
-	/*(void) i2c_smbus_write_byte(sdata->client, STMFTS_SLEEP_IN);*/
-	stmfts_command(sdata, STMFTS_CLEAR_EVENT_STACK);
-
-	i2c_smbus_write_byte(sdata->client, STMFTS_MS_MT_SENSE_ON);
 	
 	return 0;
 }
