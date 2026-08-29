@@ -592,7 +592,7 @@ static int stmfts_power_on(struct stmfts_data *sdata)
 	/*(void) i2c_smbus_write_byte(sdata->client, STMFTS_SLEEP_IN);*/
 	stmfts_command(sdata, STMFTS_CLEAR_EVENT_STACK);
 
-	i2c_smbus_write_data(sdata->client, STMFTS_MS_MT_SENSE_ON);
+	i2c_smbus_write_byte(sdata->client, STMFTS_MS_MT_SENSE_ON);
 	
 	return 0;
 }
