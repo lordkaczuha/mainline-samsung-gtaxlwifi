@@ -659,16 +659,12 @@ cnss_dcdc_en: regulator-cnss {
 	};
 };
 
-&serial1 {
+&serial0 {
 	status = "okay";
-	pinctrl-names = "default";
-	pinctrl-0 = <&uart1_data &uart1_fcr>; 
 
 	bluetooth {
 		compatible = "qcom,qca6174-bt";
 		enable-gpios = <&gpd4 0 GPIO_ACTIVE_HIGH>; 
-		clocks = <&pmu_system_clk>;
-		clock-names = "ext_clk";
 	};
 };
 
