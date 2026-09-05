@@ -659,7 +659,7 @@ cnss_dcdc_en: regulator-cnss {
 	};
 };
 
-&serial_1 {
+&serial1 {
 	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&uart1_data &uart1_fcr>; 
